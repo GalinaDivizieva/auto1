@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Auto 1</title>
+
+<script src="coolcarousel/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="coolcarousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				var $imgs = $('#images .carousel'),
+					$capt = $('#captions .carousel'),
+					$timr = $('#timer');
+
+				$imgs.carouFredSel({
+					circular: false,
+					scroll: {
+						easing: 'quadratic',
+						duration: 2,
+						timeoutDuration: 3000,
+						onBefore: function( data ) {
+							$capt.trigger( 'slideTo', [ '.' + data.items.visible.first().attr( 'alt' ) ] );
+							$timr.stop().animate({
+								opacity: 0
+							}, data.scroll.duration);
+						},
+						onAfter: function() {
+							$timr.stop().animate({
+								opacity: 1
+							}, 150);
+						}
+					},
+					auto: {
+						progress: '#timer'
+					},
+					pagination: {
+						container: '.pager',
+						anchorBuilder: function( i ) {
+							return '<a class="p' + i + '" href="#"></a>';
+						}
+					}
+				});
+				$capt.carouFredSel({
+					circular: false,
+					auto: false,
+					scroll: {
+						easing: 'quadratic',
+						duration: 2
+					}
+				});
+			});
+		</script>
+</head>
+<body>
+	<header>
+		<div id="head">
+			<div class="logo">
+				<a href="#"><img src="snimki/logo.png"></a>
+			</div>
+			<div class="nad">
+				Над <span>60 000</span> налични артикула
+			</div>
+			<div class="tel">
+				<span>0700</span> 20 190 
+				<span style="font-size:14px; color:white;">Национален телефон</span>
+			</div>
+		</div>
+		<div class="navig">
+			<a href="#">Начало</a> >
+		</div>
+	</header>
+	<div id="main">
+		<div id="wrapper">
+			<div id="images">
+				<div class="carousel">
+					<img src="snimki/slide_1.jpg" alt="nas" width="740" height="350" />
+					<img src="snimki/slide_2.jpg" alt="prod" width="740" height="350" />
+					<img src="snimki/slide_3.jpg" alt="logistika" width="740" height="350" />
+					<img src="snimki/slide_5.jpg" alt="servizi" width="740" height="350" />
+					<img src="snimki/slide_4.jpg" alt="priroda" width="740" height="350" />
+				</div>
+			</div>
+			<div id="timer"></div>
+				<div id="captions">
+					<div class="carousel">
+						<div class="nas">ЗА НАС				
+						</div>
+						<div class="prod">ПРОДУКТИ И УСЛУГИ				
+						</div>
+						<div class="logistika">ЛОГИСТИКА				
+						</div>
+						<div class="servizi">СЕРВИЗИ			
+						</div>
+						<div class="priroda">ЗА ПРИРОДАТА				
+						</div>
+					</div>
+				</div>				
+			<div class="zanas">
+				<h3>ДОБРЕ ДОШЛИ В АУТО 1</h3>
+				<p class="text" style="color#777;">Ние сме една от водещите компании в сферата на директния внос и 
+												дистрибуция на резервни части и моторни масла за автомобили. 
+												Създадена през 1996 година,нашата компания е вносител на висококачествени 
+												оригинални резервни части за леки и лекотоварни автомобили. С нашия 
+												професионализъм гарантираме на нашите клиенти мобилност и качество от 
+												най-високо ниво на достъпна цена.
+				</p>
+			</div>
+		</div>
+		<div id="nav">
+			<h3>АУТО 1 Е ЧАСТ ОТ</h3>
+			<img src="snimki/nexus-logo-1.png"/>
+			<input type='text' placeholder='Търсене...' id='search-text-input' />
+			<div id='button-holder'>
+				<img src='snimki/search_btn.png' />
+			</div><br /><br /><br /><br />
+			<h3>МЕНЮ</h3>
+			<ul class="menu">
+  			<li><a href="#">За нас</a></li>
+  			<li><a href="#">Продукти и услуги</a></li>
+  			<li><a href="#">Каталог</a></li>
+  			<li><a href="#">Новини</a></li>
+  			<li><a href="#">Кариери</a></li>
+  			<li><a href="#">Контакти</a></li>
+			</ul><br />
+			<img src="snimki/banner-bg.jpg"/><br />
+		</div>
+	</div>
+	<div id="novini">
+		<h2>Новини</h2>
+	</div>
+	<footer>
+		<div id="foot">
+			<p>Auto1.bg © 2011 - 2016. Всички права запазени.</p>
+			<div class="menufooter">
+				<ul>
+				  <li><a href="#">Контакти</a></li>
+				  <li><a href="#">Новини</a></li>
+				  <li><a href="#">Условия за ползване</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="bottom">
+			<div class="logosmall">
+				img src="snimki/logo_small.png">
+				<p>Създадохме този сайт, за да предоставим услугите си на Вас нашите клиенти по максимално достъпен и удобен начин.
+				Нашата мисия е грижата за Вашия автомобил.
+				</p>
+			</div>
+			<div class="partniori">
+				<div class="nacpart">
+					<h3 class="list-heading">Национални партньори</h3>
+					<ul>
+						<li><a href="http://innovasys-bg.com/" target="_blank">Иновасис ООД</a></li>
+						<li><a href="http://www.espaceauto.bg/" target="_blank">Еспас ауто</a></li>
+						<li><a href="http://www.ilinacar.com/" target="_blank">Илина Кар ООД</a></li>
+						<li><a href="http://rmg-bg.com/" target="_blank">Ер Ем Джи(RGM)</a></li>
+						<li><a href="http://a1service.bg/" target="_blank">Auto1 Service Partner</a></li>
+					</ul>
+				</div>
+				<div class="chupart">
+					<h3 class="list-heading">Чужди партньори</h3>
+					<ul>
+						<li><a href="http://dys-sl.com/" target="_blank">dys-sl.com</a></li>
+						<li><a href="http://www.wolflubes.com/" target="_blank">wolflubes.com</a></li>
+						<li><a href="http://bremboparts.com/en/" target="_blank">bremboparts.com</a></li>
+						<li><a href="http://www.philips.co.uk/e/car-lights/home.html" target="_blank">philips.co.uk</a></li>
+						<li><a href="http://www.elf.com/" target="_blank">elf.com</a></li>
+						<li><a href="http://www.schaeffler.com/content.schaeffler.com/en/index.jsp" target="_blank">schaeffler-group.com</a></li>
+						<li><a href="http://www.contitech.de/index_en.html" target="_blank">contitech.de</a></li>
+						<li><a href="http://federalmogul.com/en-US/Pages/Home.aspx" target="_blank">federalmogul.com</a></li>
+						<li><a href="http://www.fram-europe.com/en/index.html" target="_blank">fram-europe.com</a></li>
+						<li><a href="https://mahle.com/" target="_blank">mahle.com</a></li>
+						<li><a href="http://textar.com/" target="_blank">textar.com</a></li>
+						<li><a href="http://reinz.de/root/eng/index.php" target="_blank">reinz.de</a></li>
+						<li><a href="http://emissions.borgwarner.com/wahler/?L=1" target="_blank">wahler.de</a></li>
+						<li><a href="http://www.zf.com/corporate/en_de/homepage/homepage.html" target="_blank">zf.com</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+<body>
+</html>
